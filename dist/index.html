@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResearchFlow</title>
+    <meta name="description" content="AI-powered research platform for academic paper generation with intelligent citation management" />
+    <meta name="keywords" content="ResearchFlow, AI, research, academic, citations, artificial intelligence, papers" />
+    <meta name="author" content="ResearchFlow Team" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ResearchFlow" />
+    <meta property="og:description" content="Advanced AI platform for academic research and paper generation" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://researchflow.ai" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ResearchFlow" />
+    <meta name="twitter:description" content="AI-powered academic research platform" />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <style>
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        min-height: 100vh;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading animation */
+      .loading-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 3px solid #f3f4f6;
+        border-top: 3px solid #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      
+      /* Hide loading spinner when app loads */
+      .app-loaded .loading-spinner {
+        display: none;
+      }
+      
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        body {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        
+        /* Prevent horizontal scroll */
+        * {
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        
+        /* Touch-friendly buttons */
+        button, .btn {
+          min-height: 44px;
+          min-width: 44px;
+        }
+        
+        /* Better spacing on mobile */
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-ComuUEVJ.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-BStAX1aO.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-8CNErKeh.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BoOlkAtj.css">
+  </head>
+  <body>
+    <div id="root">
+      <div class="loading-spinner"></div>
+    </div>
+  </body>
+</html>
+
