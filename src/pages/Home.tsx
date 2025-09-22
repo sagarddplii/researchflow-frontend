@@ -63,16 +63,19 @@ const Home: React.FC = () => {
     try {
       toast.loading('Starting research pipeline...', { id: 'research-start' });
       
-      // Use the robust API hook
-      const result = await executePipeline('/research-pipeline', {
+      // Use the correct API endpoint
+      const result = await executePipeline('/generate', {
         method: 'POST',
         body: JSON.stringify({
-          query: query,
-          max_papers: filters.maxPapers,
-          sources: filters.sources,
-          paper_length: filters.paperType === 'short' ? 'short' : filters.paperType === 'long' ? 'long' : 'medium',
-          citation_style: 'apa',
-          timeout_seconds: 60
+          topic: query,
+          requirements: {
+            length: filters.paperType === 'short' ? 'short' : filters.paperType === 'long' ? 'long' : 'medium',
+            type: 'research_paper',
+            max_papers: filters.maxPapers,
+            sources: filters.sources,
+            focus_areas: [],
+            citation_style: 'apa'
+          }
         })
       });
       
@@ -91,14 +94,14 @@ const Home: React.FC = () => {
       
       // Normalize backend response to frontend shape
       const normalized = {
-        topic: result.query || query,
+        topic: result.topic || query,
         papers: (result as any).papers || [],
         summaries: (result as any).summaries || {},
-        citations: (result as any).citations || {},
-        draft_paper: (result as any).draft || (result as any).draft_paper || null,
+        citations: result.citations || {},
+        draft_paper: result.paper_draft || null,
         references: (result as any).references || (result as any).papers || [],
-        analytics: (result as any).analytics || null,
-        status: result.status === 'success' ? 'completed' : 'error',
+        analytics: result.analytics || null,
+        status: result.status === 'completed' ? 'completed' : 'error',
         processing_time: (result as any).supervisor_metrics?.total_time
       } as ResearchData;
       
