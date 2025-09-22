@@ -17,7 +17,7 @@ interface ApiResponse<T> {
   isRetrying: boolean;
 }
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_BASE || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_BASE || 'http://localhost:8000';
 
 export function useApi<T = any>(): ApiResponse<T> {
   const [data, setData] = useState<T | null>(null);
