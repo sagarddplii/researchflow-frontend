@@ -78,6 +78,10 @@ const Home: React.FC = () => {
       
       toast.dismiss('research-start');
       
+      if (!result) {
+        throw new Error('No response received from server');
+      }
+      
       if (result.status === 'error') {
         throw new Error(result.error || 'Pipeline execution failed');
       }
