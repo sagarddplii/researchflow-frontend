@@ -95,11 +95,11 @@ const Home: React.FC = () => {
       // Normalize backend response to frontend shape
       const normalized = {
         topic: result.topic || query,
-        papers: (result as any).papers || [],
-        summaries: (result as any).summaries || {},
+        papers: result.papers || [],
+        summaries: result.summaries || {},
         citations: result.citations || {},
         draft_paper: result.paper_draft || null,
-        references: (result as any).references || (result as any).papers || [],
+        references: result.papers || [], // Use papers as references for now
         analytics: result.analytics || null,
         status: result.status === 'completed' ? 'completed' : 'error',
         processing_time: (result as any).supervisor_metrics?.total_time
